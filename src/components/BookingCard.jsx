@@ -2,6 +2,8 @@ import useTilt from '../hooks/useTilt.js';
 import SceneArt from './SceneArt.jsx';
 import { inr, fmtDate } from '../data.js';
 
+const base = import.meta.env.BASE_URL;
+
 export default function BookingCard({ item, bookedDate, onChoose }) {
   const tilt = useTilt(12);
   const isKayak = item.key === 'kayak';
@@ -18,16 +20,16 @@ export default function BookingCard({ item, bookedDate, onChoose }) {
         {/* pop-out props: transparent images, no background box */}
         {isKayak ? (
           <>
-            <div className="prop wave"><img src="/wave.svg" alt="" draggable="false" /></div>
-            <div className="prop boat"><img src="/boat.png" alt="" draggable="false" /></div>
+            <div className="prop wave"><img src={`${base}wave.svg`} alt="" draggable="false" /></div>
+            <div className="prop boat"><img src={`${base}boat.png`} alt="" draggable="false" /></div>
           </>
         ) : (
           <>
-            <div className="prop tent"><img src="/tent.svg" alt="" draggable="false" /></div>
-            <div className="prop bush"><img src="/bush.svg" alt="" draggable="false" /></div>
+            <div className="prop tent"><img src={`${base}tent.svg`} alt="" draggable="false" /></div>
+            <div className="prop bush"><img src={`${base}bush.svg`} alt="" draggable="false" /></div>
           </>
         )}
-        <div className="prop stone"><img src="/stone.svg" alt="" draggable="false" /></div>
+        <div className="prop stone"><img src={`${base}stone.svg`} alt="" draggable="false" /></div>
 
         <div className="media"><SceneArt type={item.key} /></div>
 
